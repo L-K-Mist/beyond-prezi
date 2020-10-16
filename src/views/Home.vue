@@ -7,7 +7,7 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-    :viewBox="viewBox"
+    viewBox="0 0 1000 700"
     version="1.1"
     id="svg8"
     ref="graphic"
@@ -130,6 +130,7 @@
 
 <script>
 import { defineComponent, onMounted, ref, computed } from "vue";
+import { gsap } from "gsap";
 
 export default defineComponent({
   name: "Home",
@@ -163,6 +164,11 @@ export default defineComponent({
         //   height: height + amt1 * 2
         // };
         frame.value = { x, y, width, height };
+
+        gsap.to(graphic.value, 1.5, {
+          attr: { viewBox: viewBox.value }
+        });
+        // gsap.to(frame, { duration: 1, value: { x, y, width, height } });
         console.log("setup -> frame.value", frame.value);
       }, 2000);
     });
