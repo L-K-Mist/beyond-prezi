@@ -1,13 +1,18 @@
 <template>
   <svg :viewBox="viewBox" class="example">
-    <circle r="50" cx="50" cy="50"></circle>
-    <foreignObject class="foreign" x="20" y="20">
+    <foreignObject class="foreign" x="50" y="50">
       <hello-world xmlns="http://www.w3.org/1999/xhtml"></hello-world>
     </foreignObject>
   </svg>
   <div class="slidecontainer">
-    <p>Default range slider:</p>
+    <p>Left-Right</p>
     <input type="range" min="-100" max="100" v-model="left" />
+    <p>Up-Down</p>
+    <input type="range" min="-100" max="100" v-model="right" />
+    <p>Zoom-One</p>
+    <input type="range" min="0" max="200" v-model="zoomOne" />
+    <p>Zoom-Two</p>
+    <input type="range" min="0" max="200" v-model="zoomTwo" />
   </div>
 </template>
 
@@ -23,7 +28,11 @@ export default defineComponent({
   setup() {
     const left = ref(0);
     const right = ref(0);
-    const viewBox = computed(() => `${left.value} ${right.value} 50 50`);
+    const zoomOne = ref(100);
+    const zoomTwo = ref(100);
+    const viewBox = computed(
+      () => `${left.value} ${right.value} ${zoomOne.value} ${zoomOne.value}`
+    );
     watch(viewBox, viewBox => {
       console.log("setup -> viewBox", viewBox);
     });
@@ -33,7 +42,9 @@ export default defineComponent({
     return {
       viewBox,
       left,
-      right
+      right,
+      zoomOne,
+      zoomTwo
     };
   }
 });
@@ -46,8 +57,9 @@ export default defineComponent({
   border: 2px dotted blue;
 }
 .example {
+  position: relative;
   width: 80vw;
-  height: 80vh;
+  height: 60vh;
 }
 .inside {
   width: 70px;
@@ -56,6 +68,8 @@ export default defineComponent({
   border: 1px dotted pink;
 }
 .foreign {
+  position: absolute;
+  transform: translate(-50%, -50%);
   border: 1px dotted green;
   width: 80%;
   height: 80%;
