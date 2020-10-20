@@ -532,18 +532,19 @@
         id="go-back"
         class="clickable"
         @click="onReverse"
-        style="display:inline;opacity:1;fill:rgb(100, 182, 16);stroke-width:0.07952025"
+        style="display:inline;fill:rgb(100, 182, 16);stroke-width:0.07952025"
         d="m 431.87875,313.46325 v 1.40361 c 0,3.39003 -2.758,6.14803 -6.14795,6.14803 h -7.52007 v -3.18081 h 7.52007 c 1.63605,0 2.96714,-1.33109 2.96714,-2.96722 v -1.40361 c 0,-1.63605 -1.33101,-2.96714 -2.96714,-2.96714 h -1.48122 v 3.57841 l -6.81862,-5.16881 6.8187,-5.16882 v 3.57841 h 1.48122 c 3.38995,0 6.14787,2.758 6.14787,6.14795 z"
         inkscape:connector-curvature="0"
       />
-      <path
+      <!-- <path
         id="go-back-3"
-        class="clickable"
+        class="clickable "
+        :class="{ fader: !isZoomedIn }"
         @click="onReverse"
-        style="display:inline;opacity:1;fill:rgb(1, 163, 124);stroke-width:0.07952025"
+        style="display:inline;fill:rgb(1, 163, 124);stroke-width:0.07952025"
         d="m 319.34524,497.79416 v 1.40361 c 0,3.39003 -2.758,6.14803 -6.14795,6.14803 h -7.52007 v -3.18081 h 7.52007 c 1.63605,0 2.96714,-1.33109 2.96714,-2.96722 v -1.40361 c 0,-1.63605 -1.33101,-2.96714 -2.96714,-2.96714 h -1.48122 v 3.57841 l -6.81862,-5.16881 6.8187,-5.16882 v 3.57841 h 1.48122 c 3.38995,0 6.14787,2.758 6.14787,6.14795 z"
         inkscape:connector-curvature="0"
-      />
+      /> -->
     </g>
   </svg>
 </template>
@@ -569,6 +570,7 @@ export default defineComponent({
     const firstBox = ref(null);
     const graphic = ref(null);
     const stepper = ref(null);
+    const isZoomedIn = ref(false);
     const frame = ref({
       x: 0,
       y: 0,
@@ -599,6 +601,7 @@ export default defineComponent({
     function zoomToView(tl, name) {
       const id = `zoom-to-${name}`;
       const element = document.getElementById(id);
+      isZoomedIn.value = true;
       return tl.to(graphic.value, {
         duration: 1,
         attr: { viewBox: viewBoxString(element.getBBox()) }
@@ -617,12 +620,14 @@ export default defineComponent({
     }
     function onReverse() {
       tl.reverse();
+      isZoomedIn.value = false;
     }
 
     return {
       firstBox,
       graphic,
       viewBox,
+      isZoomedIn,
       zoomOutCompletely,
       stepper,
       onStepClicked,

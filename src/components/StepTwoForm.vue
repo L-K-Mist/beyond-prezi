@@ -3,8 +3,8 @@
     style="border: 1px dotted #0000ff00; width: 300px; height: 288px; transformOrigin: 0 0; transform: scale(0.183)"
   >
     <p>
-      I am a vue form component embedded inside this SVG with it's zoomable
-      world.
+      I am a vue form component embedded inside this SVG within it's inherently
+      scalable/zoomable world.
     </p>
     <base-input-text
       v-model="howMuchItRocks"
