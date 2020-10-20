@@ -69,7 +69,7 @@
           width="44.431419"
           id="deep-zoom"
           ref="firstBox"
-          style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.09012473;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:0.54074839, 0.54074839;stroke-dashoffset:0;stroke-opacity:1"
+          style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.09012473;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:0.54074839, 0.54074839;stroke-dashoffset:0;stroke-opacity:0"
         />
         <text
           xml:space="preserve"
@@ -404,7 +404,7 @@
           height="53.585438"
           width="56.347572"
           id="step-two-rect"
-          style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:0.8,1.6;stroke-dashoffset:0;stroke-opacity:1"
+          style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:0.8,1.6;stroke-dashoffset:0;stroke-opacity:0"
         />
       </g>
     </g>
@@ -422,7 +422,7 @@
           cy="469.67969"
           cx="545.5"
           id="path851-3-6"
-          style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.7363047;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:4.41782831, 4.41782831;stroke-dashoffset:10;stroke-opacity:1"
+          style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.7363047;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:4.41782831, 4.41782831;stroke-dashoffset:10;stroke-opacity:0"
         />
         <path
           d="m 524.20779,461.72231 c 1.015,-1.5753 2.376,-2.3636 4.072,-2.3636 1.628,0 2.955,0.7883 3.993,2.3636 1.037,1.5775 1.55,3.6356 1.55,6.1754 0,2.5398 -0.513,4.5858 -1.55,6.1524 -1.038,1.5545 -2.365,2.3318 -3.993,2.3318 -1.696,0 -3.057,-0.7773 -4.072,-2.3318 -1.016,-1.5666 -1.517,-3.6126 -1.517,-6.1524 0,-2.5398 0.501,-4.5979 1.517,-6.1754 z m 17.435,-0.4368 c -0.737,-2.0143 -1.752,-3.744 -3.046,-5.223 -1.294,-1.4659 -2.822,-2.6153 -4.573,-3.4473 -1.763,-0.832 -3.67,-1.248 -5.744,-1.248 -2.065,0 -3.983,0.416 -5.756,1.248 -1.774,0.832 -3.313,1.9814 -4.607,3.4473 -1.294,1.479 -2.298,3.2087 -3.023,5.223 -0.714,2.0143 -1.071,4.2158 -1.071,6.6122 0,2.3964 0.357,4.5979 1.071,6.6122 0.725,2.0143 1.729,3.755 3.023,5.2229 0.769,0.8736 1.628,1.6301 2.565,2.265 0.636,0.4379 1.315,0.832 2.042,1.1594 1.773,0.8112 3.691,1.2283 5.756,1.2283 2.074,0 3.981,-0.4171 5.744,-1.2283 1.751,-0.821 3.279,-1.9585 4.573,-3.4244 1.294,-1.4679 2.309,-3.2086 3.046,-5.2229 0.613,-1.675 0.97,-3.4823 1.069,-5.419 0.02,-0.3941 0.04,-0.7882 0.04,-1.1932 0,-2.3964 -0.368,-4.5979 -1.104,-6.6122"
@@ -444,7 +444,7 @@
           cy="287.01761"
           cx="424.63693"
           id="path851"
-          style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.73259437;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:4.39556644, 4.39556644;stroke-dashoffset:10;stroke-opacity:1"
+          style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.73259437;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:4.39556644, 4.39556644;stroke-dashoffset:10;stroke-opacity:0"
         />
         <path
           d="m 415.53679,286.04201 c 0,-2.5249 -0.516,-4.5727 -1.545,-6.1424 -1.029,-1.5707 -2.353,-2.3538 -3.97,-2.3538 -1.691,0 -3.044,0.7831 -4.054,2.3538 -1.012,1.5697 -1.517,3.6175 -1.517,6.1424 0,2.5271 0.505,4.5651 1.517,6.1163 1.01,1.5521 2.363,2.3265 4.054,2.3265 1.617,0 2.941,-0.7744 3.97,-2.3265 1.029,-1.5512 1.545,-3.5892 1.545,-6.1163 z m 8.879,0 c 0,2.3822 -0.368,4.5738 -1.103,6.5769 -0.737,2.0021 -1.749,3.7341 -3.033,5.1959 -1.288,1.4606 -2.806,2.5978 -4.552,3.4092 -1.745,0.8116 -3.648,1.2179 -5.706,1.2179 -2.061,0 -3.972,-0.4063 -5.735,-1.2179 -1.765,-0.8114 -3.293,-1.9486 -4.578,-3.4092 -1.288,-1.4618 -2.289,-3.1938 -3.007,-5.1959 -0.716,-2.0031 -1.075,-4.1947 -1.075,-6.5769 0,-2.3811 0.359,-4.5727 1.075,-6.5759 0.718,-2.0019 1.719,-3.7339 3.007,-5.1958 1.285,-1.4606 2.813,-2.6065 4.578,-3.4366 1.763,-0.8288 3.674,-1.2449 5.735,-1.2449 2.058,0 3.961,0.4161 5.706,1.2449 1.746,0.8301 3.264,1.976 4.552,3.4366 1.284,1.4619 2.296,3.1939 3.033,5.1958 0.735,2.0032 1.103,4.1948 1.103,6.5759"
@@ -461,7 +461,7 @@
       </g>
       <g style="display:inline" id="step-two">
         <ellipse
-          style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.74901068;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:4.49406441, 4.49406441;stroke-dashoffset:10;stroke-opacity:1"
+          style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.74901068;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:4.49406441, 4.49406441;stroke-dashoffset:10;stroke-opacity:0"
           id="path851-3"
           cx="311.91635"
           cy="469.98059"
@@ -491,7 +491,7 @@
     >
       <rect
         class="clickable"
-        style="opacity:0.46400003;fill:#f26f00;fill-opacity:1;stroke:#000000;stroke-width:0.58224523;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:3.49347146, 3.49347145999999986;stroke-dashoffset:10;stroke-opacity:1"
+        style="opacity:0.46400003;fill:#f26f00;fill-opacity:0;stroke:#000000;stroke-width:0.58224523;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:3.49347146, 3.49347145999999986;stroke-dashoffset:10;stroke-opacity:0"
         id="click-one"
         @click="onStepClicked('one')"
         width="59.182747"
@@ -501,7 +501,7 @@
       />
       <rect
         class="clickable"
-        style="opacity:0.46400003;fill:#f26f00;fill-opacity:1;stroke:#000000;stroke-width:0.58224523;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:3.49347146, 3.49347145999999986;stroke-dashoffset:10;stroke-opacity:1"
+        style="opacity:0.46400003;fill:#f26f00;fill-opacity:0;stroke:#000000;stroke-width:0.58224523;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:3.49347146, 3.49347145999999986;stroke-dashoffset:10;stroke-opacity:0"
         id="click-two"
         @click="onStepClicked('two')"
         width="59.182747"
@@ -511,7 +511,7 @@
       />
       <rect
         class="clickable"
-        style="opacity:0.46400003;fill:#f26f00;fill-opacity:1;stroke:#000000;stroke-width:0.63660628;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:3.81963784, 3.81963783999999995;stroke-dashoffset:10;stroke-opacity:1"
+        style="opacity:0.46400003;fill:#f26f00;fill-opacity:0;stroke:#000000;stroke-width:0.63660628;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:3.81963784, 3.81963783999999995;stroke-dashoffset:10;stroke-opacity:0"
         id="click-three"
         width="59.128387"
         height="40.026451"
@@ -520,7 +520,7 @@
       />
       <ellipse
         class="clickable"
-        style="opacity:1;fill:#f26f00;fill-opacity:1;stroke:#000000;stroke-width:0.323127;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:10;stroke-opacity:1"
+        style="opacity:1;fill:#f26f00;fill-opacity:0;stroke:#000000;stroke-width:0.323127;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:10;stroke-opacity:0"
         id="click-zoom-out-fully"
         @click="zoomOutCompletely"
         cx="718.33496"
@@ -560,9 +560,9 @@ export default defineComponent({
     StepTwoForm
   },
   methods: {
-    saveForm() {
-      console.log("saveForm -> saveForm");
-      debugger;
+    saveForm(value) {
+      console.log("saveForm -> value", value);
+      this.onReverse();
     }
   },
   setup() {
@@ -637,7 +637,6 @@ export default defineComponent({
 svg {
   width: 100vw;
   height: 100vh;
-  border: 1px dotted blue;
 }
 #step-one,
 .clickable {

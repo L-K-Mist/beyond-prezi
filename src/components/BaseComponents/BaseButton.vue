@@ -27,6 +27,9 @@ export default defineComponent({
 </script>
 
 <style>
+button {
+  z-index: -1;
+}
 .base-button {
   display: inline-flex;
   align-items: center;
@@ -44,14 +47,14 @@ export default defineComponent({
   transition: all 0.2s linear;
   min-width: 110px;
   margin: 3px 8px;
-}
-.base-button:hover {
-  transform: scale(1.02);
-  box-shadow: 0 7px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   cursor: pointer;
 }
+.base-button:hover {
+  /* transform: scale(1.01); */
+  box-shadow: 0 7px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 .base-button:active {
-  transform: scale(1);
+  transform: scale(0.9);
   box-shadow: none;
 }
 .base-button:focus {
