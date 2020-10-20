@@ -300,7 +300,6 @@
       id="layer5"
       inkscape:label="text under numbers"
       style="display:inline"
-      sodipodi:insensitive="true"
     >
       <text
         xml:space="preserve"
@@ -390,6 +389,24 @@
           </tspan>
         </tspan>
       </text>
+      <g id="step-two-form">
+        <foreignObject
+          y="442.56894"
+          x="284.5"
+          height="53.585438"
+          width="56.347572"
+        >
+          <step-two-form @save-form="saveForm"></step-two-form>
+        </foreignObject>
+        <rect
+          y="442.56894"
+          x="284.5"
+          height="53.585438"
+          width="56.347572"
+          id="step-two-rect"
+          style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:0.8,1.6;stroke-dashoffset:0;stroke-opacity:1"
+        />
+      </g>
     </g>
     <g
       inkscape:groupmode="layer"
@@ -519,6 +536,14 @@
         d="m 431.87875,313.46325 v 1.40361 c 0,3.39003 -2.758,6.14803 -6.14795,6.14803 h -7.52007 v -3.18081 h 7.52007 c 1.63605,0 2.96714,-1.33109 2.96714,-2.96722 v -1.40361 c 0,-1.63605 -1.33101,-2.96714 -2.96714,-2.96714 h -1.48122 v 3.57841 l -6.81862,-5.16881 6.8187,-5.16882 v 3.57841 h 1.48122 c 3.38995,0 6.14787,2.758 6.14787,6.14795 z"
         inkscape:connector-curvature="0"
       />
+      <path
+        id="go-back-3"
+        class="clickable"
+        @click="onReverse"
+        style="display:inline;opacity:1;fill:rgb(1, 163, 124);stroke-width:0.07952025"
+        d="m 319.34524,497.79416 v 1.40361 c 0,3.39003 -2.758,6.14803 -6.14795,6.14803 h -7.52007 v -3.18081 h 7.52007 c 1.63605,0 2.96714,-1.33109 2.96714,-2.96722 v -1.40361 c 0,-1.63605 -1.33101,-2.96714 -2.96714,-2.96714 h -1.48122 v 3.57841 l -6.81862,-5.16881 6.8187,-5.16882 v 3.57841 h 1.48122 c 3.38995,0 6.14787,2.758 6.14787,6.14795 z"
+        inkscape:connector-curvature="0"
+      />
     </g>
   </svg>
 </template>
@@ -527,13 +552,23 @@
 import { defineComponent, onMounted, ref, computed } from "vue";
 import { gsap } from "gsap";
 
+import StepTwoForm from "@/components/StepTwoForm";
+
 export default defineComponent({
   name: "Home",
+  components: {
+    StepTwoForm
+  },
+  methods: {
+    saveForm() {
+      console.log("saveForm -> saveForm");
+      debugger;
+    }
+  },
   setup() {
     const firstBox = ref(null);
     const graphic = ref(null);
     const stepper = ref(null);
-    // TODO Measure screen and set that as width and height.
     const frame = ref({
       x: 0,
       y: 0,
@@ -579,7 +614,6 @@ export default defineComponent({
         transformOrigin: "top center"
       });
       tl.play();
-      debugger;
     }
     function onReverse() {
       tl.reverse();
