@@ -56,7 +56,7 @@
     />
     <g
       inkscape:groupmode="layer"
-      id="layer3"
+      id="deep-zoom"
       inkscape:label="deep zoom"
       style="display:inline"
       sodipodi:insensitive="true"
@@ -209,10 +209,11 @@
               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.10099792px;font-family:Candara;-inkscape-font-specification:'Candara, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.82878739"
               y="404.69977"
               x="346.25873"
+              width="600"
               id="tspan1437"
               sodipodi:role="line"
             >
-              Something to Say
+              {{ userWords }}
             </tspan>
           </text>
           <text
@@ -301,6 +302,9 @@
       inkscape:label="text under numbers"
       style="display:inline"
     >
+      <foreignObject y="449" x="516" height="60" width="60" data-v-fae5bece="">
+        <rotation-navigation></rotation-navigation>
+      </foreignObject>
       <path
         id="go-back"
         class="clickable"
@@ -418,7 +422,7 @@
     </g>
     <g
       inkscape:groupmode="layer"
-      id="layer6"
+      id="stepper-numbers"
       inkscape:label="stepper numbers"
       style="display:inline"
       sodipodi:insensitive="true"
@@ -521,6 +525,7 @@
         class="clickable"
         style="opacity:0.46400003;fill:#f26f00;fill-opacity:0;stroke:#000000;stroke-width:0.63660628;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:3.81963784, 3.81963783999999995;stroke-dashoffset:10;stroke-opacity:0"
         id="click-three"
+        @click="onStepClicked('three')"
         width="59.128387"
         height="40.026451"
         x="515.42023"
@@ -536,16 +541,6 @@
         rx="14.904257"
         ry="6.8232021"
       />
-
-      <!-- <path
-        id="go-back-3"
-        class="clickable "
-        :class="{ fader: !isZoomedIn }"
-        @click="onReverse"
-        style="display:inline;fill:rgb(1, 163, 124);stroke-width:0.07952025"
-        d="m 319.34524,497.79416 v 1.40361 c 0,3.39003 -2.758,6.14803 -6.14795,6.14803 h -7.52007 v -3.18081 h 7.52007 c 1.63605,0 2.96714,-1.33109 2.96714,-2.96722 v -1.40361 c 0,-1.63605 -1.33101,-2.96714 -2.96714,-2.96714 h -1.48122 v 3.57841 l -6.81862,-5.16881 6.8187,-5.16882 v 3.57841 h 1.48122 c 3.38995,0 6.14787,2.758 6.14787,6.14795 z"
-        inkscape:connector-curvature="0"
-      /> -->
     </g>
   </svg>
 </template>
@@ -553,17 +548,20 @@
 <script>
 import { defineComponent, onMounted, ref, computed } from "vue";
 import { gsap } from "gsap";
+import RotationNavigation from "@/components/RotationNavigation.vue";
 
 import StepTwoForm from "@/components/StepTwoForm";
 
 export default defineComponent({
   name: "Home",
   components: {
-    StepTwoForm
+    StepTwoForm,
+    RotationNavigation
   },
   methods: {
     saveForm(value) {
       console.log("saveForm -> value", value);
+      this.userWords = value;
       this.onReverse();
     }
   },
@@ -578,6 +576,7 @@ export default defineComponent({
       width: 10000,
       height: 7000
     });
+    const userWords = ref("");
     const viewBox = computed(
       () =>
         `${frame.value.x} ${frame.value.y} ${frame.value.width} ${frame.value.height}`
@@ -599,19 +598,20 @@ export default defineComponent({
         attr: { viewBox: viewBoxString(stepper.value.getBBox()) }
       });
     }
-    function zoomToView(tl, name) {
+    function zoomToView(name) {
       const id = `zoom-to-${name}`;
       const element = document.getElementById(id);
+      const box = element.getBBox();
       isZoomedIn.value = true;
       return tl.to(graphic.value, {
         duration: 1,
-        attr: { viewBox: viewBoxString(element.getBBox()) }
+        attr: { viewBox: viewBoxString(box) }
       });
     }
     function onStepClicked(step) {
       console.log("step01 clicked");
       tl.clear();
-      zoomToView(tl, step);
+      zoomToView(step);
       tl.to([`#step-${step}`, `#click-${step}`], {
         duration: 1,
         scale: 0.1,
@@ -629,6 +629,7 @@ export default defineComponent({
       graphic,
       viewBox,
       isZoomedIn,
+      userWords,
       zoomOutCompletely,
       stepper,
       onStepClicked,
