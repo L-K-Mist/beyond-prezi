@@ -1,4 +1,30 @@
 <template>
+  <div id="control-panel">
+    <h3>
+      One Day I'll be a reusable navigation panel, with proper icons and
+      EVERYTHING!
+    </h3>
+    <base-button @click="handover">Handover to Child</base-button>
+    <base-button>Step Back</base-button>
+    <base-button @click="stepForward">Step Forward</base-button>
+    <base-button
+      v-if="rotationNavigation"
+      @click="rotationNavigation.zoomInDigits"
+      >Zoom In</base-button
+    >
+    <base-button
+      v-if="rotationNavigation"
+      @click="rotationNavigation.zoomOutTriangle"
+      >Zoom Out</base-button
+    >
+    <base-button v-if="rotationNavigation" @click="rotationNavigation.goToOne"
+      >Go To One</base-button
+    >
+    <base-button @click="goToTwo">Bounce to Two</base-button>
+    <base-button v-if="rotationNavigation" @click="rotationNavigation.goToThree"
+      >Bounce To Three</base-button
+    >
+  </div>
   <svg
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:cc="http://creativecommons.org/ns#"
@@ -11,7 +37,7 @@
     height="700"
     viewBox="0 0 1000 700"
     version="1.1"
-    id="svg8"
+    id="svg9"
     ref="graphic"
     inkscape:version="0.92.3 (2405546, 2018-03-11)"
     sodipodi:docname="outside-the-box.svg"
@@ -303,7 +329,7 @@
       style="display:inline"
     >
       <foreignObject y="449" x="516" height="60" width="60" data-v-fae5bece="">
-        <rotation-navigation></rotation-navigation>
+        <rotation-navigation ref="rotationNavigation"></rotation-navigation>
       </foreignObject>
       <path
         id="go-back"
@@ -549,6 +575,7 @@
 import { defineComponent, onMounted, ref, computed } from "vue";
 import { gsap } from "gsap";
 import RotationNavigation from "@/components/RotationNavigation.vue";
+import BaseButton from "@/components/BaseComponents/BaseButton.vue";
 
 import StepTwoForm from "@/components/StepTwoForm";
 
@@ -556,7 +583,8 @@ export default defineComponent({
   name: "Home",
   components: {
     StepTwoForm,
-    RotationNavigation
+    RotationNavigation,
+    BaseButton
   },
   methods: {
     saveForm(value) {
@@ -570,6 +598,9 @@ export default defineComponent({
     const graphic = ref(null);
     const stepper = ref(null);
     const isZoomedIn = ref(false);
+
+    const rotationNavigation = ref(null);
+
     const frame = ref({
       x: 0,
       y: 0,
@@ -624,7 +655,28 @@ export default defineComponent({
       isZoomedIn.value = false;
     }
 
+    function goToTwo() {
+      rotationNavigation.value.goToTwo();
+    }
+    function handover() {
+      gsap.to(graphic.value, {
+        duration: 1,
+        attr: {
+          viewBox: viewBoxString({
+            y: 449,
+            x: 516,
+            height: 60,
+            width: 60
+          })
+        }
+      });
+    }
     return {
+      handover,
+
+      rotationNavigation,
+      goToTwo,
+
       firstBox,
       graphic,
       viewBox,
@@ -652,5 +704,15 @@ svg {
 
 .click-zones {
   opacity: 0.4;
+}
+
+#control-panel {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 160px;
+  background-color: rgb(125, 255, 255);
+  /* display: none; */
 }
 </style>
