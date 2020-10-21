@@ -8,6 +8,9 @@
     <base-button @click="stepForward">Step Forward</base-button>
     <base-button @click="zoomInDigits">Zoom In</base-button>
     <base-button @click="zoomOutTriangle">Zoom Out</base-button>
+    <base-button @click="goToOne">Go To One</base-button>
+    <base-button @click="goToTwo">Bounce to Two</base-button>
+    <base-button @click="goToThree">Bounce To Three</base-button>
   </div>
 
   <svg
@@ -318,12 +321,12 @@ export default defineComponent({
   name: "Home",
   components: { BaseButton },
   setup() {
+    const stepDigits = [
+      "#step-number-01",
+      "#step-number-02",
+      "#step-number-03"
+    ];
     function stepForward() {
-      const stepDigits = [
-        "#step-number-01",
-        "#step-number-02",
-        "#step-number-03"
-      ];
       gsap.to(stepDigits, {
         duration: 1,
         transformOrigin: "center center",
@@ -345,6 +348,97 @@ export default defineComponent({
         attr: { viewBox: viewBoxString(zoomBox) }
       });
     }
+    function goToOne() {
+      zoomInDigits();
+      gsap.to(["#layer-base-triangle", ...stepDigits], {
+        duration: 1,
+        transformOrigin: "center center",
+        rotate: 0
+      });
+      gsap.to("#layer-base-triangle", {
+        duration: 1,
+        x: 0,
+        y: 0
+      });
+    }
+    function goToTwo() {
+      const tl = gsap.timeline();
+      // zoomInDigits();
+      const amt = 20;
+      const box = {
+        height: 26.36753273010254,
+        width: 26.36753273010254,
+        x: 36.70178985595703,
+        y: 9.095277786254883
+      };
+      tl.to("#svg8", {
+        duration: 0.5,
+        attr: {
+          viewBox: viewBoxString({
+            height: box.height + amt * 2,
+            width: box.width + amt * 2,
+            x: box.x - amt,
+            y: box.y - amt
+          })
+        }
+      }).to("#svg8", {
+        duration: 0.5,
+        attr: {
+          viewBox: viewBoxString(box)
+        }
+      });
+      gsap.to(stepDigits, {
+        duration: 1,
+        transformOrigin: "center center",
+        rotate: -120
+      });
+      gsap.to("#layer-base-triangle", {
+        duration: 1,
+        transformOrigin: "center center",
+        rotate: 120,
+        x: -1,
+        y: 2
+      });
+    }
+    function goToThree() {
+      const tl = gsap.timeline();
+      // zoomInDigits();
+      const amt = 20;
+      const box = {
+        height: 26.36753273010254,
+        width: 26.36753273010254,
+        x: 36.70178985595703,
+        y: 9.095277786254883
+      };
+      tl.to("#svg8", {
+        duration: 0.5,
+        attr: {
+          viewBox: viewBoxString({
+            height: box.height + amt * 2,
+            width: box.width + amt * 2,
+            x: box.x - amt,
+            y: box.y - amt
+          })
+        }
+      }).to("#svg8", {
+        duration: 0.5,
+        attr: {
+          viewBox: viewBoxString(box)
+        }
+      });
+      gsap.to(stepDigits, {
+        duration: 1,
+        transformOrigin: "center center",
+        rotate: -240
+      });
+      gsap.to("#layer-base-triangle", {
+        duration: 1,
+        transformOrigin: "center center",
+        rotate: 240,
+        x: 0.8,
+        y: 3
+      });
+    }
     function zoomOutTriangle() {
       const zoomBox = document.getElementById("zoomed-out").getBBox();
       gsap.to("#svg8", {
@@ -355,7 +449,10 @@ export default defineComponent({
     return {
       stepForward,
       zoomInDigits,
-      zoomOutTriangle
+      zoomOutTriangle,
+      goToOne,
+      goToTwo,
+      goToThree
     };
   }
 });
@@ -363,8 +460,8 @@ export default defineComponent({
 
 <style scoped>
 svg {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 #control-panel {
@@ -374,5 +471,6 @@ svg {
   width: 100vw;
   height: 160px;
   background-color: rgb(125, 255, 255);
+  /* display: none; */
 }
 </style>
