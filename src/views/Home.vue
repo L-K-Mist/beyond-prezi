@@ -4,9 +4,9 @@
       One Day I'll be a reusable navigation panel, with proper icons and
       EVERYTHING!
     </h3>
-    <base-button @click="handover">Handover to Child</base-button>
-    <base-button>Step Back</base-button>
-    <base-button @click="stepForward">Step Forward</base-button>
+    <base-button @click="handoverToChild">Handover to Child</base-button>
+    <base-button @click="handoverToParent">Hand over to Parent</base-button>
+    <!-- <base-button @click="stepForward">Step Forward</base-button> -->
     <base-button
       v-if="rotationNavigation"
       @click="rotationNavigation.zoomInDigits"
@@ -658,7 +658,7 @@ export default defineComponent({
     function goToTwo() {
       rotationNavigation.value.goToTwo();
     }
-    function handover() {
+    function handoverToChild() {
       gsap.to(graphic.value, {
         duration: 1,
         attr: {
@@ -671,8 +671,14 @@ export default defineComponent({
         }
       });
     }
+    function handoverToParent() {
+      rotationNavigation.value.zoomOutTriangle();
+      tl.reverse();
+      // zoomOutCompletely();
+    }
     return {
-      handover,
+      handoverToChild,
+      handoverToParent,
 
       rotationNavigation,
       goToTwo,
