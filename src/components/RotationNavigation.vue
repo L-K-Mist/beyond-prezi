@@ -38,9 +38,9 @@
       borderopacity="1.0"
       inkscape:pageopacity="0.0"
       inkscape:pageshadow="2"
-      inkscape:zoom="1.8101934"
-      inkscape:cx="-150.58877"
-      inkscape:cy="127.48274"
+      inkscape:zoom="5.12"
+      inkscape:cx="57.289211"
+      inkscape:cy="72.289625"
       inkscape:document-units="px"
       inkscape:current-layer="layer-zoom-frames"
       showgrid="true"
@@ -60,7 +60,7 @@
         <cc:Work rdf:about="">
           <dc:format>image/svg+xml</dc:format>
           <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-          <dc:title />
+          <dc:title></dc:title>
         </cc:Work>
       </rdf:RDF>
     </metadata>
@@ -239,6 +239,7 @@
           cy="50.099205"
           cx="50.245724"
           id="path1369"
+          class="hide"
           style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.37990239;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:0.03799024, 0.03799024;stroke-dashoffset:0;stroke-opacity:1"
           rx="49.86655"
           ry="49.866684"
@@ -258,6 +259,7 @@
           sodipodi:cx="50.695683"
           sodipodi:sides="3"
           id="path1387"
+          class="hide"
           style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.38104132;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:0.03810414, 0.03810414;stroke-dashoffset:0;stroke-opacity:1"
           sodipodi:type="star"
           transform="matrix(0.99700973,0,0,0.99701238,5.6532672e-4,-0.9158887)"
@@ -276,14 +278,6 @@
       inkscape:label="zoom frames"
       style="display:inline"
     >
-      <rect
-        style="display:inline;opacity:0.19299999;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.15650406;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:0.93902443, 0.93902443;stroke-dashoffset:10;stroke-opacity:1"
-        id="zoom-to-one"
-        width="15.908107"
-        height="13.833137"
-        x="28.387436"
-        y="1.9663734"
-      />
       <g style="display:inline" id="g874">
         <rect
           y="0"
@@ -471,6 +465,9 @@ svg {
   width: 100vw;
   height: 160px;
   background-color: rgb(125, 255, 255);
-  /* display: none; */
+  display: none;
+}
+.hide {
+  display: none;
 }
 </style>
