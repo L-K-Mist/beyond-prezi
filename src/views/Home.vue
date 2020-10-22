@@ -4,7 +4,6 @@
       One Day I'll be a reusable navigation panel, with proper icons and
       EVERYTHING!
     </h3>
-    <base-button @click="handoverToChild">Handover to Child</base-button>
     <base-button @click="handoverToParent">Hand over to Parent</base-button>
     <!-- <base-button @click="stepForward">Step Forward</base-button> -->
     <base-button
@@ -252,7 +251,7 @@
             <tspan
               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32.10099792px;font-family:Candara;-inkscape-font-specification:'Candara, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.82878739"
               y="342.24411"
-              x="501.56345"
+              x="480"
               id="tspan1441"
               sodipodi:role="line"
             >
@@ -269,6 +268,14 @@
       style="display:inline"
       sodipodi:insensitive="true"
     >
+      <rect
+        style="opacity:0.15100002;fill:none;fill-opacity:1;stroke:#000000;stroke-width:2.08865356;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:16.70922751, 8.35461375;stroke-dashoffset:0;stroke-opacity:1"
+        id="view-whole-triangle"
+        width="460"
+        height="371.50778"
+        x="226.46214"
+        y="194.34724"
+      />
       <rect
         style="display:inline;opacity:0.19299999;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:10;stroke-opacity:1"
         id="zoom-to-one"
@@ -327,6 +334,24 @@
       inkscape:label="text under numbers"
       style="display:inline"
     >
+      <text
+        transform="scale(1.0094225,0.99066545)"
+        id="text1439-3"
+        y="452.28418"
+        x="540.42212"
+        style="font-style:normal;font-weight:normal;font-size:5.56842899px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.20881607"
+        xml:space="preserve"
+      >
+        <tspan
+          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.56842899px;font-family:Candara;-inkscape-font-specification:'Candara, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.20881607"
+          y="452.28418"
+          x="540.42212"
+          id="tspan1437-6"
+          sodipodi:role="line"
+        >
+          Alternative Movements
+        </tspan>
+      </text>
       <foreignObject y="449" x="516" height="60" width="60" data-v-fae5bece="">
         <rotation-navigation ref="rotationNavigation"></rotation-navigation>
       </foreignObject>
@@ -558,7 +583,7 @@
       />
       <ellipse
         class="clickable"
-        style="opacity:1;fill:#f26f00;fill-opacity:0;stroke:#000000;stroke-width:0.323127;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:10;stroke-opacity:0"
+        style="opacity:1;fill:#f26f00;fill-opacity:1;stroke:#000000;stroke-width:0.323127;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:10;stroke-opacity:1"
         id="click-zoom-out-fully"
         @click="zoomOutCompletely"
         cx="718.33496"
@@ -623,9 +648,10 @@ export default defineComponent({
     const tl = gsap.timeline({ paused: true });
 
     function zoomOutCompletely() {
+      const view = document.getElementById("view-whole-triangle");
       gsap.to(graphic.value, {
         duration: 1,
-        attr: { viewBox: viewBoxString(stepper.value.getBBox()) }
+        attr: { viewBox: viewBoxString(view.getBBox()) }
       });
     }
     function zoomToView(name) {
@@ -638,27 +664,9 @@ export default defineComponent({
         attr: { viewBox: viewBoxString(box) }
       });
     }
-    function onStepClicked(step) {
-      console.log("step01 clicked");
-      tl.clear();
-      zoomToView(step);
-      tl.to([`#step-${step}`, `#click-${step}`], {
-        duration: 1,
-        scale: 0.1,
-        transformOrigin: "top center"
-      });
-      tl.play();
-    }
-    function onReverse() {
-      tl.reverse();
-      isZoomedIn.value = false;
-    }
-
-    function goToTwo() {
-      rotationNavigation.value.goToTwo();
-    }
     function handoverToChild() {
       gsap.to(graphic.value, {
+        delay: 3,
         duration: 1,
         attr: {
           viewBox: viewBoxString({
@@ -670,6 +678,29 @@ export default defineComponent({
         }
       });
     }
+    function onStepClicked(step) {
+      console.log("step01 clicked");
+      tl.clear();
+      zoomToView(step);
+      tl.to([`#step-${step}`, `#click-${step}`], {
+        duration: 1,
+        scale: 0.1,
+        transformOrigin: "top center"
+      });
+      tl.play();
+      if (step === "three") {
+        handoverToChild();
+      }
+    }
+    function onReverse() {
+      tl.reverse();
+      isZoomedIn.value = false;
+    }
+
+    function goToTwo() {
+      rotationNavigation.value.goToTwo();
+    }
+
     function handoverToParent() {
       rotationNavigation.value.zoomOutTriangle();
       tl.reverse();

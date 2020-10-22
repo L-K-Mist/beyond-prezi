@@ -61,7 +61,7 @@ button {
   outline: 0;
 }
 .base-button.black-square {
-  background: #333333;
+  background: #0b0222;
   color: #ffffff;
   border-radius: 2px;
 }

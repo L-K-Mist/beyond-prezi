@@ -6,12 +6,15 @@
       I am a vue form component embedded inside this SVG within it's inherently
       scalable/zoomable world.
     </p>
+    <p style="font-size: 15px">
+      I could therefore include a video or a map or whatever.
+    </p>
     <base-input-text
       v-model="howMuchItRocks"
       label="How much does this rock!!!?"
     ></base-input-text>
     <base-button @click="$emit('save-form', howMuchItRocks)"
-      >Save to DB or Whatever</base-button
+      >Use form inputs in app</base-button
     >
   </div>
 </template>
