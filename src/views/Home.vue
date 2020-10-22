@@ -245,19 +245,19 @@
           <text
             transform="scale(1.0094225,0.99066545)"
             id="text1443"
-            y="339.24411"
-            x="504.56345"
+            y="342.24411"
+            x="501.56345"
             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.10099792px;line-height:1.25;font-family:Candara;-inkscape-font-specification:'Candara, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.82878739"
             xml:space="preserve"
           >
             <tspan
-              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.10099792px;font-family:Candara;-inkscape-font-specification:'Candara, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.82878739"
-              y="339.24411"
-              x="504.56345"
+              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32.10099792px;font-family:Candara;-inkscape-font-specification:'Candara, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.82878739"
+              y="342.24411"
+              x="501.56345"
               id="tspan1441"
               sodipodi:role="line"
             >
-              Title One
+              Beyond Prezzie
             </tspan>
           </text>
         </g>

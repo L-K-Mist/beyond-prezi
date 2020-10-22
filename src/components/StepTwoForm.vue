@@ -7,7 +7,8 @@
       scalable/zoomable world.
     </p>
     <base-input-text
-      v-model="howMuchItRocks"
+      :value="howMuchItRocks"
+      @input="howMuchItRocks = $event"
       label="How much does this rock!!!?"
     ></base-input-text>
     <base-button @click="$emit('save-form', howMuchItRocks)"
@@ -17,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import BaseInputText from "@/components/BaseComponents/BaseInputText.vue";
 import BaseButton from "@/components/BaseComponents/BaseButton.vue";
 
@@ -25,12 +26,20 @@ export default defineComponent({
   name: "Home",
   components: { BaseInputText, BaseButton },
   setup() {
-    return {};
-  },
-  data() {
+    const howMuchItRocks = ref("A LOT!!");
     return {
-      howMuchItRocks: "A LOT!!!"
+      howMuchItRocks
     };
+  },
+  // data() {
+  //   return {
+  //     howMuchItRocks: "A LOT!!!"
+  //   };
+  // },
+  watch: {
+    howMuchItRocks(value) {
+      console.log("howMuchItRocks -> value", value);
+    }
   }
 });
 </script>
