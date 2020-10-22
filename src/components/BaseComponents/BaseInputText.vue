@@ -4,7 +4,7 @@
       <label v-if="label">{{ label }}</label>
       <input
         type="text"
-        :value="value"
+        :value="modelValue"
         :style="cssVars"
         v-bind="$attrs"
         @input="updateValue($event.target.value)"
@@ -22,7 +22,7 @@ export default defineComponent({
       type: String,
       default: ""
     },
-    value: {
+    modelValue: {
       type: [String, Number],
       default: ""
     },
@@ -40,8 +40,8 @@ export default defineComponent({
   },
   methods: {
     updateValue(value) {
-      console.log("updateValue -> value", value);
-      this.$emit("input", value);
+      // console.log("updateValue -> value", value);
+      this.$emit("update:modelValue", value);
     }
   }
 });

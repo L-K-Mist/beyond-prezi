@@ -7,8 +7,7 @@
       scalable/zoomable world.
     </p>
     <base-input-text
-      :value="howMuchItRocks"
-      @input="howMuchItRocks = $event"
+      v-model="howMuchItRocks"
       label="How much does this rock!!!?"
     ></base-input-text>
     <base-button @click="$emit('save-form', howMuchItRocks)"
