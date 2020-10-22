@@ -227,15 +227,14 @@
             transform="scale(1.0094225,0.99066545)"
             id="text1439"
             y="404.69977"
-            x="346.25873"
+            x="427.48099"
             style="font-style:normal;font-weight:normal;font-size:22.10099792px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.82878739"
             xml:space="preserve"
           >
             <tspan
-              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.10099792px;font-family:Candara;-inkscape-font-specification:'Candara, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.82878739"
+              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.10099792px;font-family:Candara;-inkscape-font-specification:'Candara, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.82878739"
               y="404.69977"
-              x="346.25873"
-              width="600"
+              x="427.48099"
               id="tspan1437"
               sodipodi:role="line"
             >
