@@ -313,6 +313,9 @@ export default defineComponent({
       "#step-number-02",
       "#step-number-03"
     ];
+    function start() {
+      console.log("start -> start", start);
+    }
     function stepForward() {
       gsap.to(stepDigits, {
         duration: 1,
@@ -437,6 +440,7 @@ export default defineComponent({
       });
     }
     return {
+      start,
       stepForward,
       zoomInDigits,
       zoomOutTriangle,

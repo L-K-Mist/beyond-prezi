@@ -1,5 +1,5 @@
 <template>
-  <div id="control-panel">
+  <div v-if="showToolbar" id="control-panel">
     <h3>
       One Day I'll be a reusable navigation panel, with proper icons and
       EVERYTHING!
@@ -23,6 +23,7 @@
     <base-button v-if="rotationNavigation" @click="rotationNavigation.goToThree"
       >Bounce To Three</base-button
     >
+    <base-button @click="selected = 'blue'"></base-button>
   </div>
   <svg
     xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -112,7 +113,7 @@
             y="239.43968"
             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.50346661px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.05637804"
           >
-            Don't click this button if you want to
+            Don't click the pink button if you want to
           </tspan>
           <tspan
             sodipodi:role="line"
@@ -415,7 +416,7 @@
             id="tspan948"
             style="stroke-width:0.38582805"
           >
-            the page, in later steps
+            the page, in the next step
           </tspan>
         </tspan>
         <tspan
@@ -431,7 +432,7 @@
             id="tspan952"
             style="stroke-width:0.38582805"
           >
-            we will see about adding
+            we see about adding
           </tspan>
         </tspan>
         <tspan
@@ -622,6 +623,7 @@ export default defineComponent({
     const graphic = ref(null);
     const stepper = ref(null);
     const isZoomedIn = ref(false);
+    const showToolbar = ref(false);
 
     const rotationNavigation = ref(null);
 
@@ -664,6 +666,10 @@ export default defineComponent({
         attr: { viewBox: viewBoxString(box) }
       });
     }
+    function overToYouChild() {
+      rotationNavigation.value.start();
+      showToolbar.value = true;
+    }
     function handoverToChild() {
       gsap.to(graphic.value, {
         delay: 3,
@@ -675,7 +681,8 @@ export default defineComponent({
             height: 60,
             width: 60
           })
-        }
+        },
+        onComplete: overToYouChild
       });
     }
     function onStepClicked(step) {
@@ -704,8 +711,10 @@ export default defineComponent({
     function handoverToParent() {
       rotationNavigation.value.zoomOutTriangle();
       tl.reverse();
+      showToolbar.value = false;
       // zoomOutCompletely();
     }
+
     return {
       handoverToChild,
       handoverToParent,
@@ -717,6 +726,7 @@ export default defineComponent({
       graphic,
       viewBox,
       isZoomedIn,
+      showToolbar,
       userWords,
       zoomOutCompletely,
       stepper,
@@ -724,11 +734,16 @@ export default defineComponent({
       zoomToView,
       onReverse
     };
+  },
+  data() {
+    return {
+      selected: "pink"
+    };
   }
 });
 </script>
 
-<style scoped>
+<style vars="{ selected }">
 svg {
   width: 100vw;
   height: 100vh;
@@ -748,7 +763,7 @@ svg {
   right: 0;
   width: 100vw;
   height: 160px;
-  background-color: rgb(125, 255, 255);
+  background-color: var(--selected);
   /* display: none; */
 }
 </style>
