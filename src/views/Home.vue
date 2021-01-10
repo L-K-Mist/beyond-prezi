@@ -256,7 +256,7 @@
               id="tspan1441"
               sodipodi:role="line"
             >
-              Beyond Prezzie
+              Beyond Prezie
             </tspan>
           </text>
         </g>
@@ -609,14 +609,14 @@ export default defineComponent({
   components: {
     StepTwoForm,
     RotationNavigation,
-    BaseButton
+    BaseButton,
   },
   methods: {
     saveForm(value) {
       console.log("saveForm -> value", value);
       this.userWords = value;
       this.onReverse();
-    }
+    },
   },
   setup() {
     const firstBox = ref(null);
@@ -631,7 +631,7 @@ export default defineComponent({
       x: 0,
       y: 0,
       width: 10000,
-      height: 7000
+      height: 7000,
     });
     const userWords = ref("");
     const viewBox = computed(
@@ -653,7 +653,7 @@ export default defineComponent({
       const view = document.getElementById("view-whole-triangle");
       gsap.to(graphic.value, {
         duration: 1,
-        attr: { viewBox: viewBoxString(view.getBBox()) }
+        attr: { viewBox: viewBoxString(view.getBBox()) },
       });
     }
     function zoomToView(name) {
@@ -663,7 +663,7 @@ export default defineComponent({
       isZoomedIn.value = true;
       return tl.to(graphic.value, {
         duration: 1,
-        attr: { viewBox: viewBoxString(box) }
+        attr: { viewBox: viewBoxString(box) },
       });
     }
     function overToYouChild() {
@@ -679,10 +679,10 @@ export default defineComponent({
             y: 449,
             x: 516,
             height: 60,
-            width: 60
-          })
+            width: 60,
+          }),
         },
-        onComplete: overToYouChild
+        onComplete: overToYouChild,
       });
     }
     function onStepClicked(step) {
@@ -692,7 +692,7 @@ export default defineComponent({
       tl.to([`#step-${step}`, `#click-${step}`], {
         duration: 1,
         scale: 0.1,
-        transformOrigin: "top center"
+        transformOrigin: "top center",
       });
       tl.play();
       if (step === "three") {
@@ -732,14 +732,14 @@ export default defineComponent({
       stepper,
       onStepClicked,
       zoomToView,
-      onReverse
+      onReverse,
     };
   },
   data() {
     return {
-      selected: "pink"
+      selected: "pink",
     };
-  }
+  },
 });
 </script>
 
