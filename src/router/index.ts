@@ -17,13 +17,21 @@ const routes: Array<RouteRecordRaw> = [
     path: "/test",
     name: "Test",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../components/RotationNavigation.vue"),
+      import(
+        /* webpackChunkName: "about" */ "../components/RotationNavigation.vue"
+      ),
+  },
+  {
+    path: "/test-bluetooth",
+    name: "Test Bluetooth",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/TestBluetooth.vue"),
   },
 ];
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
 });
 
 export default router;
