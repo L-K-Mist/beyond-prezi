@@ -256,7 +256,7 @@
               id="tspan1441"
               sodipodi:role="line"
             >
-              Beyond Prezie
+              Beyond Prezi
             </tspan>
           </text>
         </g>
