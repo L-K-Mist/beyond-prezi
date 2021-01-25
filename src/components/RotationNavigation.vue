@@ -311,7 +311,7 @@ export default defineComponent({
     const stepDigits = [
       "#step-number-01",
       "#step-number-02",
-      "#step-number-03"
+      "#step-number-03",
     ];
     function start() {
       console.log("start -> start", start);
@@ -320,12 +320,12 @@ export default defineComponent({
       gsap.to(stepDigits, {
         duration: 1,
         transformOrigin: "center center",
-        rotate: -120
+        rotate: -120,
       });
       gsap.to("#layer-base-triangle", {
         duration: 1,
         transformOrigin: "center center",
-        rotate: 120
+        rotate: 120,
       });
     }
     function viewBoxString(frame) {
@@ -335,7 +335,7 @@ export default defineComponent({
       const zoomBox = document.getElementById("zoom-to-01").getBBox();
       gsap.to("#svg8", {
         duration: 1,
-        attr: { viewBox: viewBoxString(zoomBox) }
+        attr: { viewBox: viewBoxString(zoomBox) },
       });
     }
     function goToOne() {
@@ -345,13 +345,13 @@ export default defineComponent({
         {
           duration: 1,
           transformOrigin: "center center",
-          rotate: 0
+          rotate: 0,
         }
       );
       gsap.to(["#layer-base-triangle", "#layer-stepper-numbers"], {
         duration: 1,
         x: 0,
-        y: 0
+        y: 0,
       });
     }
     function goToTwo() {
@@ -362,7 +362,7 @@ export default defineComponent({
         height: 26.36753273010254,
         width: 26.36753273010254,
         x: 36.70178985595703,
-        y: 9.095277786254883
+        y: 9.095277786254883,
       };
       tl.to("#svg8", {
         duration: 0.5,
@@ -371,26 +371,26 @@ export default defineComponent({
             height: box.height + amt * 2,
             width: box.width + amt * 2,
             x: box.x - amt,
-            y: box.y - amt
-          })
-        }
+            y: box.y - amt,
+          }),
+        },
       }).to("#svg8", {
         duration: 0.5,
         attr: {
-          viewBox: viewBoxString(box)
-        }
+          viewBox: viewBoxString(box),
+        },
       });
       gsap.to(stepDigits, {
         duration: 1,
         transformOrigin: "center center",
-        rotate: -120
+        rotate: -120,
       });
       gsap.to(["#layer-base-triangle", "#layer-stepper-numbers"], {
         duration: 1,
         transformOrigin: "center center",
         rotate: 120,
         x: 3.5,
-        y: 10
+        y: 10,
       });
     }
     function goToThree() {
@@ -401,7 +401,7 @@ export default defineComponent({
         height: 26.36753273010254,
         width: 26.36753273010254,
         x: 36.70178985595703,
-        y: 9.095277786254883
+        y: 9.095277786254883,
       };
       tl.to("#svg8", {
         duration: 0.5,
@@ -410,33 +410,33 @@ export default defineComponent({
             height: box.height + amt * 2,
             width: box.width + amt * 2,
             x: box.x - amt,
-            y: box.y - amt
-          })
-        }
+            y: box.y - amt,
+          }),
+        },
       }).to("#svg8", {
         duration: 0.5,
         attr: {
-          viewBox: viewBoxString(box)
-        }
+          viewBox: viewBoxString(box),
+        },
       });
       gsap.to(stepDigits, {
         duration: 1,
         transformOrigin: "center center",
-        rotate: -240
+        rotate: -240,
       });
       gsap.to(["#layer-base-triangle", "#layer-stepper-numbers"], {
         duration: 1,
         transformOrigin: "center center",
         rotate: 240,
         x: -6,
-        y: 12
+        y: 12,
       });
     }
     function zoomOutTriangle() {
       const zoomBox = document.getElementById("zoomed-out-inner").getBBox();
       gsap.to("#svg8", {
         duration: 1,
-        attr: { viewBox: viewBoxString(zoomBox) }
+        attr: { viewBox: viewBoxString(zoomBox) },
       });
     }
     return {
@@ -446,9 +446,9 @@ export default defineComponent({
       zoomOutTriangle,
       goToOne,
       goToTwo,
-      goToThree
+      goToThree,
     };
-  }
+  },
 });
 </script>
 

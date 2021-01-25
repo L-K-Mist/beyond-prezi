@@ -1,9 +1,5 @@
 <template>
   <div v-if="showToolbar" id="control-panel">
-    <h3>
-      One Day I'll be a reusable navigation panel, with proper icons and
-      EVERYTHING!
-    </h3>
     <base-button @click="handoverToParent">Hand over to Parent</base-button>
     <!-- <base-button @click="stepForward">Step Forward</base-button> -->
     <base-button
@@ -23,7 +19,7 @@
     <base-button v-if="rotationNavigation" @click="rotationNavigation.goToThree"
       >Bounce To Three</base-button
     >
-    <base-button @click="selected = 'blue'"></base-button>
+    <!-- <base-button @click="selected = 'blue'"></base-button> -->
   </div>
   <svg
     xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -762,7 +758,7 @@ svg {
   bottom: 0;
   right: 0;
   width: 100vw;
-  height: 160px;
+  height: 80px;
   background-color: var(--selected);
   /* display: none; */
 }
